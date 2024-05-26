@@ -77,7 +77,7 @@ class TestIonexHeaderBuild():
         formatter = IonexFile()
         formatter.add_comment(comment)
         formatter.add_comment(comment)
-        expected  = [
+        expected = [
             "TEC values in  0.1 TECUs; 9999 if no val"  
             "ue available        COMMENT             ", 
             "IGS GPS stations used in the computation" 
