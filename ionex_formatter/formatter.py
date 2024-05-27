@@ -277,7 +277,7 @@ class IonexFile:
                 "format tokens {}. See data {} and format {}"
             msg = msg.format(len(data), len(val_tokens), data, format_string)
             raise ValueError(msg)
-        i  = 0
+        i = 0
         for token in tokens:
             formatted_data = ""
             width = 0
@@ -294,8 +294,8 @@ class IonexFile:
             elif token[-1] == 'X':
                 width = int(token[:-1])
                 formatted_data = "".rjust(width)
-            else:
-                raise UnknownFormatSpecifier(token)
+            # else:
+            #     raise UnknownFormatSpecifier(token)
             if token[-1] != 'X':
                 self._verify_formatted(
                     data[i], token[0], formatted_data, width, precision
@@ -450,7 +450,7 @@ class IonexFile:
         ids = {"lat": "LAT1 / LAT2 / DLAT",
                "lon": "LON1 / LON2 / DLON",
                 "height": "HGT1 / HGT2 / DHGT"}
-        duplicates =[c for c in ids.values() if c in self.header]
+        duplicates = [c for c in ids.values() if c in self.header]
         if duplicates:
             raise HeaderDuplicatedLine
         for rng_type, rng in ranges.items():
