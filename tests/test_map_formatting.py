@@ -63,3 +63,6 @@ class TestMapFormating():
             datetime(2010, 12, 28)
         )
         assert "\n".join(lines) == sample_map_lines
+
+    def test_empty(self, formatter):
+        pass

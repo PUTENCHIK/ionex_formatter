@@ -125,14 +125,16 @@ class SpatialRange():
         if chunk_size <= 0:
             return [(0, num)]
         start_end = [(s, s + chunk_size) for s in range(0, num, chunk_size)]
+        print(num, chunk_size)
+        print(start_end)
         very_last = start_end[-1][1]
         if very_last > num:
             start_end = start_end[:-1]
-        # add last chunk that could be not full 
+        # add last chunk that could be not full
         if num % chunk_size != 0:
             start = (num // chunk_size) * chunk_size
-            if start < 0:
-                start_end = [(0, num)]    
-            else:
-                start_end.append((start, num)) 
+            # if start < 0:
+            #     start_end = [(0, num)]
+            # else:
+            start_end.append((start, num))
         return start_end

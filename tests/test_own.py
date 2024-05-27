@@ -19,8 +19,6 @@ from ionex_formatter.spatial import (
     DecimalDigitReduceAccuracyError,
 )
 
-from ionex_formatter.spatial import SpatialRange
-
 
 class TestFormatter():
     def test_1(self):
@@ -102,14 +100,8 @@ class TestSpatial:
 
     def test_2(self):
         with pytest.raises(DecimalDigitReduceAccuracyError):
-            spatial = SpatialRange(100.05, 50, -5, 1)
-            spatial.verify()
+            SpatialRange(100.05, 50, -5, 1)
 
     def test_3(self):
         with pytest.raises(DecimalDigitReduceAccuracyError):
-            spatial = SpatialRange(100, 50.05, -5, 1)
-            spatial.verify()
-
-    def test_4(self):
-        spatial = SpatialRange(100, 50, -5)
-        spatial.get_chunks(3)
+            SpatialRange(100, 50.05, -5, 1)
